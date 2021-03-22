@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <script type="text/javascript" src="../static/js/activity-handler.js"></script>
     <script type="text/javascript" src="../static/js/data-handler.js"></script>
     <title>AWS Instance Generator</title>
@@ -32,6 +33,7 @@ This website helps to create aws instances easily
           <option value="vpc">VPC</option>
         </select>
 </div>
+<hr>
 <div>
 
     <label for="regions">Choose a region:</label>
@@ -46,11 +48,12 @@ This website helps to create aws instances easily
           <option value="apc-southeast-1">Asia Pacific Singapore</option>
         </select>
 </div>
+<hr>
 <div>
     <label for="acki">AWS Access Key ID: </label><input type="text" id="acki" required></br>
     <label for="asak">AWS Secret Access Key: </label><input type="text" id="asak" required></br>
 </div>
-
+<hr>
 <div id="s3_section" hidden>
 <br>
     <label for="s3_name">S3 Bucket Name: </label><input type="text" id="s3_name" placeholder="S3 Bucket Name"></br>
@@ -59,7 +62,7 @@ This website helps to create aws instances easily
           <option value="private">Private</option>
           <option value="public-read">Public Read</option>
           <option value="public-read-write">Public Read Write</option>
-            <option value="authenticated-read">Authenticated Read</option>
+          <option value="authenticated-read">Authenticated Read</option>
         </select></br>
         <input type="button" value="Create" id="s3_create">
 
@@ -111,7 +114,7 @@ This website helps to create aws instances easily
 
     <label>master username</label>
     <input type="text" id="master_username"></br>
-    <label>master password</label>
+    <label>master password (min 8 charecter)</label>
     <input type="password" id="master_password">
     <input type="checkbox" onclick="show_value()">Show Password</br>
 
@@ -126,7 +129,7 @@ This website helps to create aws instances easily
     <input type="button" value="Create" id="rds_create">
 
 </div>
-
+<hr>
 <div id = "table-responsive">
         <table id = "list" cellspacing = "10px" cellpadding = "50px" text-align = "center" class="table" style="font-size:1.5em;">
             <tbody id ="tbody">

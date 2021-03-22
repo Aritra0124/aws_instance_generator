@@ -1,10 +1,6 @@
 $(document).ready(function(){
-
-
-
-
        $('#s3_create').click(function () {
-           var location = $("#regions").val();
+        var location = $("#regions").val();
         var aws_access_key_id = $("#acki").val();
         var aws_secret_access_key = $("#asak").val();
         var s3_name = $("#s3_name").val();
@@ -24,9 +20,10 @@ $(document).ready(function(){
             type: 'POST',
             success: function (response) {
                 res = response;
-
+                data = res["response"]
+                console.log(data["ResponseMetadata"]);
                 if (res["status"] === "working") {
-                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" + res["response"] + "</p>" + "</td>" + "</tr>";
+                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" + JSON.stringify(data["ResponseMetadata"]) + "</p>" + "</td>" + "</tr>";
                         $("#tbody").append(eachrow);
                 } else {
                     alert("not working");
@@ -109,9 +106,9 @@ $(document).ready(function(){
             type: 'POST',
             success: function (response) {
                 res = response;
-
+                data = res["response"];
                 if (res["status"] === "working") {
-                        var eachrow = "<tr>" + "<td>" + "<p class='name'>" + res["response"] + "</p>" + "</td>" + "</tr>";
+                        var eachrow = "<tr>" + "<td>" + "<p class='name'>" + JSON.stringify(data) + "</p>" + "</td>" + "</tr>";
                         $("#tbody").append(eachrow);
                 } else {
                     alert("not working");

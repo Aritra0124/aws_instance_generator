@@ -10,6 +10,7 @@ def create_ec2():
     if request.method == 'POST':
         data = json.loads(request.get_data(as_text=True))
         response = ec2_test.create_ec2(data)
+
         return {"status": "working", "response":response}
 
 
@@ -18,6 +19,7 @@ def create_s3():
     if request.method == 'POST':
         data = json.loads(request.get_data(as_text=True))
         response = s3_test.create_s3(data)
+
         return {"status": "working", "response": response}
 
 
@@ -26,6 +28,7 @@ def create_rds():
     if request.method == 'POST':
         data = json.loads(request.get_data(as_text=True))
         response = rds_test.create_rds(data)
+
         return {"status": "working", "response": response}
 
 @app.route('/')
