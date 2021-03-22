@@ -33,8 +33,8 @@ def create_rds():
 
 @app.route('/')
 def hello_world():
-    print("this is for testing only")
     return render_template('index.html')
 
 
-
+if __name__ == '__main__':
+    app.run(threaded=True, port=5000)
