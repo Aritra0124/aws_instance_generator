@@ -1,0 +1,21 @@
+.form-popup {
+    transition: 0.3s;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 800px;
+    height: 820px;
+    border-radius: 5px;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: azure;
+}
+
+
+

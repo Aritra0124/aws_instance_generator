@@ -6,6 +6,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/card_view.css">
     <script type="text/javascript" src="../static/js/activity-handler.js"></script>
     <script type="text/javascript" src="../static/js/data-handler.js"></script>
     <title>AWS Instance Generator</title>
@@ -22,48 +23,49 @@ function show_value() {
 
 </head>
 <body>
-This website helps to create aws instances easily
-<div>
+<h1 style="text-align: center">This website helps to create an aws instance easily</h1>
+<div class="form-popup">
+    <div></br>
+         <label for="instances">Choose a instance type:</label>
+            <select name="instance" id="inst">
+              <option value="s3">S3</option>
+              <option value="ec2">EC2</option>
+              <option value="rds">RDS</option>
+              <option value="vpc">VPC</option>
+            </select>
+    </div>
+    <hr>
+    <div>
+        <label for="regions">Choose a region:</label>
+            <select name="region" id="regions">
+              <option value="us-east-1">US East N. Virginia</option>
+              <option value="us-east-2">US East Ohio</option>
+              <option value="us-west-1">US West N. California</option>
+              <option value="us-west-2">US West Oregon</option>
+              <option value="apc-east-1">Asia Pacific Hong Kong</option>
+              <option value="apc-south-1">Asia Pacific Mumbai</option>
+              <option value="apc-northeast-2">Asia Pacific Seoul</option>
+              <option value="apc-southeast-1">Asia Pacific Singapore</option>
+            </select>
+    </div>
+    <hr>
+    <br>
+    <div>
+        <label for="acki">AWS Access Key ID: </label><input type="text" id="acki" required></br></br>
+        <label for="asak">AWS Secret Access Key: </label><input type="text" id="asak" required></br></br>
+    </div>
 
-     <label for="instances">Choose a instance type:</label>
-        <select name="instance" id="inst">
-          <option value="s3">S3</option>
-          <option value="ec2">EC2</option>
-          <option value="rds">RDS</option>
-          <option value="vpc">VPC</option>
-        </select>
-</div>
-<hr>
-<div>
-
-    <label for="regions">Choose a region:</label>
-        <select name="region" id="regions">
-          <option value="us-east-1">US East N. Virginia</option>
-          <option value="us-east-2">US East Ohio</option>
-          <option value="us-west-1">US West N. California</option>
-          <option value="us-west-2">US West Oregon</option>
-          <option value="apc-east-1">Asia Pacific Hong Kong</option>
-          <option value="apc-south-1">Asia Pacific Mumbai</option>
-          <option value="apc-northeast-2">Asia Pacific Seoul</option>
-          <option value="apc-southeast-1">Asia Pacific Singapore</option>
-        </select>
-</div>
-<hr>
-<div>
-    <label for="acki">AWS Access Key ID: </label><input type="text" id="acki" required></br>
-    <label for="asak">AWS Secret Access Key: </label><input type="text" id="asak" required></br>
-</div>
 <hr>
 <div id="s3_section" hidden>
 <br>
-    <label for="s3_name">S3 Bucket Name: </label><input type="text" id="s3_name" placeholder="S3 Bucket Name"></br>
+    <label for="s3_name">S3 Bucket Name: </label><input type="text" id="s3_name" placeholder="S3 Bucket Name"></br></br>
     <label for="acl">Choose a ACL for S3 Bucket:</label>
         <select name="acl_policy" id="acl">
           <option value="private">Private</option>
           <option value="public-read">Public Read</option>
           <option value="public-read-write">Public Read Write</option>
           <option value="authenticated-read">Authenticated Read</option>
-        </select></br>
+        </select></br></br>
         <input type="button" value="Create" id="s3_create">
 
 </div>
@@ -75,7 +77,7 @@ This website helps to create aws instances easily
           <option value="ami-03d64741867e7bb94">Red Hat Enterprise Linux 8 (HVM)</option>
           <option value="ami-08962a4068733a2b6">Ubuntu Server 20.04 LTS (HVM)</option>
           <option value="ami-0db6a09e9ade44bb3">Microsoft Windows Server 2019 Base</option>
-        </select></br>
+        </select></br></br>
 
     <label for="instancetype">Choose Instance Type for EC2:</label>
         <select name="ec2_instance" id="instancetype">
@@ -87,21 +89,21 @@ This website helps to create aws instances easily
           <option value="t2.large">t2.large</option>
           <option value="t2.xlarge">t2.xlarge</option>
           <option value="t2.2xlarge">t2.2xlarge</option>
-         </select></br>
+         </select></br></br>
     <input type="button" value="Create" id="ec2_create">
 </div>
 
 <div id="rds_section" hidden>
     <label>Database Instance Identifier (Must small letter and no special character)</label>
-    <input type="text" id="db_instance_identifier"></br>
+    <input type="text" id="db_instance_identifier"></br></br>
 
         <label for="db_instance_class">Choose Storage Type for RDS:</label>
         <select name="rds_instance_class" id="db_instance_class">
           <option value="db.t2.micro">db.t2.micro</option>
-        </select></br>
+        </select></br></br>
 
     <label>Database Name:</label>
-    <input type="text" id="db_name"></br>
+    <input type="text" id="db_name"></br></br>
 
 <label for="engine_name">Choose Engine Type for RDS:</label>
         <select name="rds_engine" id="engine_name">
@@ -110,24 +112,24 @@ This website helps to create aws instances easily
           <option value="postgres">Postgres</option>
           <option value="aurora">Aurora</option>
           <option value="oracle-se">oracle-se</option>
-        </select></br>
+        </select></br></br>
 
     <label>master username</label>
-    <input type="text" id="master_username"></br>
+    <input type="text" id="master_username"></br></br>
     <label>master password (min 8 charecter)</label>
     <input type="password" id="master_password">
-    <input type="checkbox" onclick="show_value()">Show Password</br>
+    <input type="checkbox" onclick="show_value()">Show Password</br></br>
 
         <label for="storagetype">Choose Storage Type for RDS:</label>
         <select name="rds_storage" id="storagetype">
           <option value="standard">standard</option>
           <option value="gp2">gp2</option>
-        </select></br>
+        </select></br></br>
 
         <label for="allocated_storage">Allocated Storage:</label>
-    <input type="number" id="allocated_storage" name="storage" min="20" max="16384"></br>
+    <input type="number" id="allocated_storage" name="storage" min="20" max="16384"></br></br>
     <input type="button" value="Create" id="rds_create">
-
+</div>
 </div>
 <hr>
 <div id = "table-responsive">

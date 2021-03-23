@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-import  s3_test, rds_test, ec2_test
+import s3_test, rds_test, ec2_test
 import json
 
 app = Flask(__name__)
@@ -11,7 +11,7 @@ def create_ec2():
         data = json.loads(request.get_data(as_text=True))
         response = ec2_test.create_ec2(data)
 
-        return {"status": "working", "response":response}
+        return {"status": "working", "response": response}
 
 
 @app.route('/s3', methods=['POST'])
@@ -31,10 +31,11 @@ def create_rds():
 
         return {"status": "working", "response": response}
 
+
 @app.route('/')
 def hello_world():
     return render_template('index.html')
 
 
 if __name__ == '__main__':
-    app.run(threaded=True, port=5000)
+    app.run(host="0.0.0.0", threaded=True, port=8080)
