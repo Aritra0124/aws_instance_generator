@@ -23,7 +23,7 @@ $(document).ready(function(){
                 data = res["response"]
                 console.log(data["ResponseMetadata"]);
                 if (res["status"] === "working") {
-                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" +"S3 Instance: " +JSON.stringify(data["ResponseMetadata"]) + "</p>" + "</td>" + "</tr>";
+                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" +"S3 Instance: " +data + "</p>" + "</td>" + "</tr>";
                         $("#tbody").append(eachrow);
                 } else {
                     alert("not working");
