@@ -17,6 +17,5 @@ def create_s3(data):
         },
 
     )
-    return(response)
-
+    return(response["Location"])
 

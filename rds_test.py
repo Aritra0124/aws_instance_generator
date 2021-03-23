@@ -31,4 +31,5 @@ def create_rds(data):
                                       MasterUserPassword=MasterUserPassword,
                                       DBInstanceClass=DBInstanceClass
                                       )
-    return(response)
+    print(response["DBInstance"]["DBInstanceStatus"])
+    return response["DBInstance"]["DBInstanceStatus"]

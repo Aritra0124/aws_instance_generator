@@ -17,5 +17,23 @@
     background: azure;
 }
 
-
+.form-popup-response {
+    transition: 0.3s;
+    position: absolute;
+    margin: auto;
+    margin-bottom: 100px;
+    top: 890px;
+    right: 0;
+    bottom: 100px;
+    left: 75%;
+    width: 400px;
+    height: 500px;
+    border-radius: 5px;
+    justify-content: center;
+    align-content: space-around;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: #18ecec;
+}
 

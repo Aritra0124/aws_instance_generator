@@ -23,7 +23,7 @@ $(document).ready(function(){
                 data = res["response"]
                 console.log(data["ResponseMetadata"]);
                 if (res["status"] === "working") {
-                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" + JSON.stringify(data["ResponseMetadata"]) + "</p>" + "</td>" + "</tr>";
+                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" +"S3 Instance: " +JSON.stringify(data["ResponseMetadata"]) + "</p>" + "</td>" + "</tr>";
                         $("#tbody").append(eachrow);
                 } else {
                     alert("not working");
@@ -60,7 +60,7 @@ $(document).ready(function(){
                 res = response;
 
                 if (res["status"] === "working") {
-                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" + res["response"] + "</p>" + "</td>" + "</tr>";
+                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" +"EC2 Instance ID: "+res["response"] + "</p>" + "</td>" + "</tr>";
                         $("#tbody").append(eachrow);
                 } else {
                     alert("not working");
@@ -108,7 +108,7 @@ $(document).ready(function(){
                 res = response;
                 data = res["response"];
                 if (res["status"] === "working") {
-                        var eachrow = "<tr>" + "<td>" + "<p class='name'>" + JSON.stringify(data) + "</p>" + "</td>" + "</tr>";
+                        var eachrow = "<tr>" + "<td>" + "<p class='name'>" +"RDS Instance: " +JSON.stringify(data) + "</p>" + "</td>" + "</tr>";
                         $("#tbody").append(eachrow);
                 } else {
                     alert("not working");
