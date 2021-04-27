@@ -2,12 +2,12 @@
     transition: 0.3s;
     position: absolute;
     margin: auto;
-    top: 0;
+    top: 30%;
     right: 0;
-    bottom: 0;
+    bottom: 20%;
     left: 0;
-    width: 800px;
-    height: 820px;
+    width: 48%;
+    height: 95%;
     border-radius: 5px;
     justify-content: center;
     align-content: space-around;

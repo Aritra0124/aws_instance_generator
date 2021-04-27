@@ -24,6 +24,9 @@ $(document).ready(function(){
                 console.log(data["ResponseMetadata"]);
                 if (res["status"] === "working") {
                     var eachrow = "<tr>" + "<td>" + "<p class='name'>" +"S3 Instance: " +data + "</p>" + "</td>" + "</tr>";
+                    
+                    
+
                         $("#tbody").append(eachrow);
                 } else {
                     alert("not working");
