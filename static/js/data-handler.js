@@ -1,23 +1,18 @@
 $(document).ready(function(){
-       $('#s3_create').click(function () {
-        var location = $("#regions").val();
-        
-
+       $('#refresh').click(function () {
+              
         $.ajax({
-            url: '/s3',
+            url: '/saved_data',
             dataType: "json",
             contentType: "application/json",
-            data: JSON.stringify({
-                
-                location: location
-            }),
-            type: 'POST',
+            
+            type: 'GET',
             success: function (response) {
                 res = response;
-                data = res["response"]
-                console.log(data["ResponseMetadata"]);
+                data = res["data"]
+                console.log(data);
                 if (res["status"] === "working") {
-                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" +"S3 Instance: " +data + "</p>" + "</td>" + "</tr>";
+                    var eachrow = "<tr>" + "<td>" + "<p class='name'>" +"saved data: " +data + "</p>" + "</td>" + "</tr>";
                     
                     
 

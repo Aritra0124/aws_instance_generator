@@ -7,13 +7,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
     <script type="text/javascript" src="../static/js/data-handler.js"></script>
-    <title>CLoud Data Display</title>
+    <script type="text/javascript" src="../static/js/api-test.js"></script>
+
+    <title>Cloud Data Display</title>
    
 
 </head>
 <body>
+  <div><br>
+    <button type="button" class="btn btn-outline-primary" id="refresh">Refresh</button>
+  </br>
+  </div>
+  <div id = "table-responsive">
+    <table id = "list" cellspacing = "10px" cellpadding = "50px" text-align = "center" class="table" style="font-size:1.5em;">
+        <tbody id ="tbody">
+          <tr></tr>
+        </tbody>
+    </table>
+</div>
+
 <div>
-  <a href=""></a>
+  <input type="text" id="test">
+  <button type="button" class="btn btn-outline-primary" id="test-btn">Test</button>
+
 </div>
 </body>
 </html>

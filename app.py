@@ -1,6 +1,8 @@
-from flask import Flask, request, render_template, send_file
-import json
-import pymysql
+from flask import Flask, request, render_template, jsonify
+#import pymysql
+import random, json
+
+from flask.wrappers import Response
 
 app = Flask(__name__)
 
@@ -19,6 +21,20 @@ def db():
     # id = cursor.fetchone()
     return id
 
+@app.route('/save_data', methods=['POST'])
+def save():
+    if request.method == 'POST':
+        data = json.loads(request.get_data(as_text=True))
+        print(data)
+        response = "working"
+        return {"status": "working", "response": response}
+        
+
+@app.route('/saved_data', methods=['GET'])
+def activities():
+    if request.method == 'GET':
+        data = random.random()
+    return jsonify({"status": "working","data": data})
 
 @app.route('/')
 def hello_world():
@@ -26,4 +42,4 @@ def hello_world():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", threaded=True, port=8080, debug=True)
+    app.run( host ='0.0.0.0' ,threaded=True, port=8080, debug=True)
