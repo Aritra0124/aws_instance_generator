@@ -24,7 +24,7 @@ def db():
 @app.route('/save_data', methods=['POST'])
 def save():
     if request.method == 'POST':
-        data = json.loads(request.get_data(as_text=True))
+        data = request.get_data(as_text=True)
         print(data)
         response = "working"
         return {"status": "working", "response": response}
