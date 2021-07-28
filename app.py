@@ -1,44 +1,47 @@
 from flask import Flask, request, render_template, jsonify
-#import pymysql
-import random, json
-
 from flask.wrappers import Response
+import random, json
+import db
 
 app = Flask(__name__)
 
-def db():
-    db = pymysql.connect("localhost", "pmauser", "aritraroot", "tracker")
-    cursor = db.cursor()
-    sql = "select TIMEDIFF(%s, %s)"
-    cursor.execute(sql, (data["to_time"], data["from_time"]))
-    total_time = cursor.fetchone()
-    sql = "insert into activity_update values(0,%s, %s, NOW(), %s, %s, %s)"
-    id = cursor.execute(sql, (
-        session["activity_id"], session['id'], data["from_time"], data["to_time"],
-        total_time))
-    db.commit()
-    db.close()
-    # id = cursor.fetchone()
-    return id
+def dbOP(data):
+    database = db.database()
+    database.connectDB('localhost', 'pmauser', 'aritraroot', 'aih')
+    id = database.insertDetailsDB(data['name'], data['age'], data['gender'])
+    database.disconnectDB()
+    return int(id)
 
-@app.route('/save_data', methods=['POST'])
+def healthOp(data):
+    database = db.database()
+    database.connectDB('localhost', 'pmauser', 'aritraroot', 'aih')
+    id = database.insertHealthDB(data['id'], data['spo2'], data['heart_rate'], 0)
+    database.disconnectDB()
+
+@app.route('/save_user_health_data', methods=['POST'])
+def save_data():
+    if request.method == 'POST':
+        data = json.loads(request.get_data(as_text=True))
+        print(data)
+        healthOp(data)
+        response = "working"
+        return {"status": "1", "response": response}
+
+@app.route('/save_user_data', methods=['POST'])
 def save():
     if request.method == 'POST':
-        data = request.get_data(as_text=True)
+        data = json.loads(request.get_data(as_text=True))
         print(data)
+        id = dbOP(data)
         response = "working"
-        return {"status": "working", "response": response}
+        return {"status": id, "response": response}
         
 
-@app.route('/saved_data', methods=['GET'])
-def activities():
-    if request.method == 'GET':
-        data = random.random()
-    return jsonify({"status": "working","data": data})
+
 
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    return render_template('view.html')
 
 
 if __name__ == '__main__':
