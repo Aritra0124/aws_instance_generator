@@ -21,7 +21,7 @@ def create_s3():
     if request.method == 'POST':
         data = json.loads(request.get_data(as_text=True))
         response = s3_test.create_s3(data)
-        
+ 
         terraform_generator_for_S3.terraform_s3(data)
         return {"status": "working", "response": response}
 
